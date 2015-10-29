@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Company1s</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Manager</th>
+      <th>Status</th>
+      <th>Terms</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @company1s.each do |company1| %>
+      <tr>
+        <td><%= company1.name %></td>
+        <td><%= company1.manager %></td>
+        <td><%= company1.status %></td>
+        <td><%= company1.terms %></td>
+        <td><%= link_to 'Show', company1 %></td>
+        <td><%= link_to 'Edit', edit_company1_path(company1) %></td>
+        <td><%= link_to 'Destroy', company1, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<h3>import companies</h3>
+<%= form_tag import_company1s_path multipart : true do %>
+<%= file_field_tag :file %>
+<%= submit_tag "upload companies file" %>
+<% end %>
+
+<%= link_to 'New Company1', new_company1_path %>

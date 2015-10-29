@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :company1s do
+    collection {post :import}
+  end
   devise_for :users
   get 'welcome/index'
 
